@@ -53,7 +53,8 @@ public class Complemento {
 
         return c2;
     }
-    //Paso B (Verificación)
+    
+    //Paso B (Verificación) de complemento 2 a decimal
   public static int ca2ADecimal(String numero) {
         if (!Conversion.esValido(numero, 0, 2)) {
             System.out.println("Error: el número no es binario.");
