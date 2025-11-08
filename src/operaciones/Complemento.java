@@ -2,7 +2,7 @@ package operaciones;
 
 public class Complemento {
     private boolean signo;
-    private static final int[] numeroBits = {8, 16, 32
+    private static final int[] numeroBits = {8, 16, 32}
   //complemento 1                                          
  public static String complemento1(String numero) {
         if (!Conversion.esValido(numero, 0, 2)) { 
