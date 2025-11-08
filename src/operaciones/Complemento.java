@@ -16,4 +16,24 @@ public class Complemento {
     System.out.println("El número es binario.");
     return true;
 }
+
+           //complemento 1 
+
+         public static String complemento1(String numero) {
+        if (!esBinario(numero)) {
+            return "Error: el número ingresado no es binario.";
+        }
+
+        String c1 = "";
+        for (int i = 0; i < numero.length(); i++) {
+            char bit = numero.charAt(i);
+            if (bit == '0') {
+                c1 += '1';
+            } else {
+                c1 += '0';
+            }
+        }
+        return c1;
+    }
+    
 }
