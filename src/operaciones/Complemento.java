@@ -55,35 +55,29 @@ public class Complemento {
     }
     
     //Paso B (Verificación) de complemento 2 a decimal
-  public static int ca2ADecimal(String numero) {
+ public static int ca2ADecimal(String numero) {
         if (!Conversion.esValido(numero, 0, 2)) {
             System.out.println("Error: el número no es binario.");
             return 0;
         }
 
-        boolean esNegativo = numero.charAt(0) == '1'; 
+        boolean esNegativo = numero.charAt(0) == '1';
 
         if (!esNegativo) {
-    
-            int decimal = 0;
-            int potencia = 1;
-            for (int i = numero.length() - 1; i >= 0; i--) {
-                if (numero.charAt(i) == '1') {
-                    decimal += potencia;
-                }
-                potencia *= 2;
-            }
-            return decimal;
+            return Conversion.bin2dec(numero);
         } else {
-
+            // Complemento a 1
             String c1 = "";
             for (int i = 0; i < numero.length(); i++) {
                 char bit = numero.charAt(i);
-                if (bit == '0') c1 += '1';
-                else c1 += '0';
+                if (bit == '0') {
+                    c1 += '1';
+                } else {
+                    c1 += '0';
+                }
             }
 
-            // 2. Sumar 1 manualmente
+           
             String c2 = "";
             int suma = 1;
             for (int i = c1.length() - 1; i >= 0; i--) {
@@ -99,20 +93,12 @@ public class Complemento {
                 }
             }
 
-            // 3. Convertir el resultado a decimal
-            int valor = 0;
-            int potencia = 1;
-            for (int i = c2.length() - 1; i >= 0; i--) {
-                if (c2.charAt(i) == '1') {
-                    valor += potencia;
-                }
-                potencia *= 2;
-            }
-
+            int valor = Conversion.bin2dec(c2);
             return -valor;
         }
     }
 
+    //Paso A (Representación): Convertir el número decimal a su representación binaria
     public static String decimalACa2(int numero, int bits) {
         // Calcular mínimo y máximo representable
         int minimo = 1;
