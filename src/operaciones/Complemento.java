@@ -113,5 +113,38 @@ public class Complemento {
         }
     }
 
+    public static String decimalACa2(int numero, int bits) {
+        // Calcular mínimo y máximo representable
+        int minimo = 1;
+        for (int i = 1; i < bits; i++) minimo *= 2;
+        minimo = -minimo;
+
+        int maximo = 1;
+        for (int i = 1; i < bits; i++) maximo *= 2;
+        maximo = maximo - 1;
+
+        if (numero < minimo || numero > maximo) {
+            return "Error: overflow. No se puede representar " + numero + " en " + bits + " bits.";
+        }
+
+        String binario;
+        if (numero >= 0) {
+            binario = Conversion.dec2bin(numero);
+            while (binario.length() < bits) {
+                binario = '0' + binario;
+            }
+            return binario;
+        } else {
+            int valorAbs = numero;
+            if (valorAbs < 0) valorAbs = -valorAbs;
+
+            binario = Conversion.dec2bin(valorAbs);
+            while (binario.length() < bits) {
+                binario = '0' + binario;
+            }
+
+            return complemento2(binario);
+        }
+    }
     
 }
