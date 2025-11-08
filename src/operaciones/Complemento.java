@@ -55,7 +55,7 @@ public class Complemento {
     }
     
     //Paso B (Verificación) de complemento 2 a decimal
- public static int ca2ADecimal(String numero) {
+ public static int Complemento2ADecimal(String numero) {
         if (!Conversion.esValido(numero, 0, 2)) {
             System.out.println("Error: el número no es binario.");
             return 0;
@@ -99,7 +99,7 @@ public class Complemento {
     }
 
     //Paso A (Representación): Convertir el número decimal a su representación binaria
-    public static String decimalACa2(int numero, int bits) {
+    public static String decimalAComplemento2(int numero, int bits) {
         // Calcular mínimo y máximo representable
         int minimo = 1;
         for (int i = 1; i < bits; i++) minimo *= 2;
