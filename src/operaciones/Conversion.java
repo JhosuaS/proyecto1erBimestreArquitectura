@@ -1,7 +1,7 @@
 package operaciones;
 
 public class Conversion {
-    private static boolean esValido(String cadena, int numero, int base) {
+    public static boolean esValido(String cadena, int numero, int base) {
         switch(base) {
             case 2:
                 for(int i = 0; i < cadena.length(); i++) {

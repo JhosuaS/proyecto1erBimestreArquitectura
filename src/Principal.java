@@ -1,13 +1,10 @@
-package operaciones;
-
+import operaciones.*;
 import java.util.Scanner;
 
 public class Principal {
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Complemento complemento = new Complemento();
-        SumaRestaBinario operaciones = new SumaRestaBinario();
+        SumaRestaBin operaciones = new SumaRestaBin();
 
         int opcion;
 
@@ -19,7 +16,7 @@ public class Principal {
             System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion = sc.nextInt();
-
+            sc.nextLine();
             switch (opcion) {
                 case 1:
                     System.out.println("\n--- CONVERSIONES ---");
@@ -53,12 +50,12 @@ public class Principal {
                             case 2:
                                 System.out.print("Ingrese número octal: ");
                                 String oct = sc.nextLine();
-                                System.out.println("Decimal: " + Conversion.oct2dec(numero));
+                                System.out.println("Decimal: " + Conversion.oct2dec(oct));
                                 break;
                             case 3:
                                 System.out.print("Ingrese número hexadecimal: ");
                                 String hex = sc.nextLine();
-                                System.out.println("Decimal: " + Conversion.hex2dec(numero));
+                                System.out.println("Decimal: " + Conversion.hex2dec(hex));
                                 break;
                         }
                     }
@@ -66,11 +63,13 @@ public class Principal {
 
                 case 2:
                     System.out.println("\n--- COMPLEMENTOS ---");
+                    //TODO: implementar sub menú para conversión de decimal a complemento, y de complemento a decimal
+                    //TODO: llamar los métodos Complemento2ADecimal y decimalAComplemento2
                     System.out.print("Ingrese número binario: ");
                     String num = sc.nextLine();
 
-                    System.out.println("Complemento a 1: " + complemento.complemento1(num));
-                    System.out.println("Complemento a 2: " + complemento.complemento2(num));
+                    System.out.println("Complemento a 1: " + Complemento.complemento1(num));
+                    System.out.println("Complemento a 2: " + Complemento.complemento2(num));
                     break;
 
                 case 3:
@@ -79,9 +78,9 @@ public class Principal {
                     String b1 = sc.nextLine();
                     System.out.print("Ingrese el segundo número binario: ");
                     String b2 = sc.nextLine();
-
-                    System.out.println("Suma: " + operaciones.suma(b1, b2));
-                    System.out.println("Resta: " + operaciones.resta(b1, b2));
+                    //TODO: Descomentar cuando se implementen los métodos en la clase SumaRestaBin
+                    //System.out.println("Suma: " + operaciones.suma(b1, b2));
+                    //System.out.println("Resta: " + operaciones.resta(b1, b2));
                     break;
 
                 case 0:
