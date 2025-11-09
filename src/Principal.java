@@ -60,17 +60,43 @@ public class Principal {
                         }
                     }
                     break;
+      case 2:
+       System.out.println("\n--- COMPLEMENTOS BINARIOS ---");
+       System.out.println("1. Decimal a complemento a 2");
+       System.out.println("2. Binario (complemento a 2) a Decimal");
+       System.out.println("3. Binario a Complemento 1 y 2 ");
+       System.out.print("Seleccione una opción: ");
+       int subComp = sc.nextInt();
+       sc.nextLine();
 
-                case 2:
-                    System.out.println("\n--- COMPLEMENTOS ---");
-                    //TODO: implementar sub menú para conversión de decimal a complemento, y de complemento a decimal
-                    //TODO: llamar los métodos Complemento2ADecimal y decimalAComplemento2
-                    System.out.print("Ingrese número binario: ");
-                    String num = sc.nextLine();
+         switch (subComp) {
+                  case 1:
+                        System.out.print("Ingrese un número decimal : ");
+                        int numero = sc.nextInt();
+                        System.out.print("Ingrese la cantidad de bits (8, 16 o 32): ");
+                        int bits = sc.nextInt();
 
-                    System.out.println("Complemento a 1: " + Complemento.complemento1(num));
-                    System.out.println("Complemento a 2: " + Complemento.complemento2(num));
-                    break;
+                        String resultado = Complemento.decimalAComplemento2(numero, bits);
+                        System.out.println("Representación en complemento a 2: " + resultado);
+                        break;
+                  case 2:
+                        System.out.print("Ingrese el número binario en complemento a 2: ");
+                        String bin = sc.nextLine();
+
+                        int dec = Complemento.Complemento2ADecimal(bin);
+                        System.out.println("Equivalente decimal: " + dec);
+                        break;
+                 case 3
+                        System.out.print("Ingrese número binario: ");
+                        String num = sc.nextLine();
+
+                        System.out.println("Complemento a 1: " + Complemento.complemento1(num));
+                        System.out.println("Complemento a 2: " + Complemento.complemento2(num));
+                        break;
+        default:
+            System.out.println("Opción no válida en el menú de complementos.");
+    }
+    break;
 
                 case 3:
                     System.out.println("\n--- SUMA Y RESTA BINARIA ---");
