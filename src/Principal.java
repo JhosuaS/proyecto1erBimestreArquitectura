@@ -99,7 +99,7 @@ public class Principal {
     break;
 
             case 3:
-    System.out.println("\n--- SUMA Y RESTA BINARIA (Complemento a 2) ---");
+    System.out.println("\n--- SUMA Y RESTA BINARIA ---");
     System.out.println("1. Sumar binarios");
     System.out.println("2. Restar binarios");
     System.out.print("Seleccione una opción: ");
