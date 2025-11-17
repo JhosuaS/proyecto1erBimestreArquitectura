@@ -98,16 +98,47 @@ public class Principal {
     }
     break;
 
-                case 3:
-                    System.out.println("\n--- SUMA Y RESTA BINARIA ---");
-                    System.out.print("Ingrese el primer número binario: ");
-                    String b1 = sc.nextLine();
-                    System.out.print("Ingrese el segundo número binario: ");
-                    String b2 = sc.nextLine();
-                    //TODO: Descomentar cuando se implementen los métodos en la clase SumaRestaBin
-                    //System.out.println("Suma: " + operaciones.suma(b1, b2));
-                    //System.out.println("Resta: " + operaciones.resta(b1, b2));
-                    break;
+            case 3:
+    System.out.println("\n--- SUMA Y RESTA BINARIA (Complemento a 2) ---");
+    System.out.println("1. Sumar binarios");
+    System.out.println("2. Restar binarios");
+    System.out.print("Seleccione una opción: ");
+    int opBin = sc.nextInt();
+    sc.nextLine();
+
+    System.out.print("Ingrese el primer número binario: ");
+    String bin1 = sc.nextLine();
+
+    System.out.print("Ingrese el segundo número binario: ");
+    String bin2 = sc.nextLine();
+
+    if (!bin1.matches("[01]+") || !bin2.matches("[01]+")) {
+        System.out.println(" Error: ingrese solo números binarios.");
+        break;
+    }
+                    
+    String[] iguales = SumaRestaBinario.igualarLongitud(bin1, bin2);
+    bin1 = iguales[0];
+    bin2 = iguales[1];
+
+    String resultado = "";
+
+    if (opBin == 1) {
+        resultado = SumaRestaBinario.sumar(bin1, bin2);
+    } else {
+        resultado = SumaRestaBinario.restar(bin1, bin2);
+    }
+                    
+    if (resultado.length() > bin1.length()) {
+        resultado = resultado.substring(1);
+        System.out.println(" Overflow detectado (se descartó bit extra).");
+    }
+
+    System.out.println("\nResultado en complemento a 2: " + resultado);
+                    
+    break;
+
+
 
                 case 0:
                     System.out.println("Saliendo del programa...");
