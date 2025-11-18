@@ -4,7 +4,6 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        SumaRestaBin operaciones = new SumaRestaBin();
 
         int opcion;
 
@@ -45,17 +44,32 @@ public class Principal {
                             case 1:
                                 System.out.print("Ingrese número binario: ");
                                 String bin = sc.nextLine();
-                                System.out.println("Decimal: " + Conversion.bin2dec(bin));
+                                int dec = Conversion.bin2dec(bin);
+                                if (dec != -1) {
+                                    System.out.println("Decimal: " + dec);
+                                } else {
+                                    System.out.println("Número inválido");
+                                }
                                 break;
                             case 2:
                                 System.out.print("Ingrese número octal: ");
                                 String oct = sc.nextLine();
-                                System.out.println("Decimal: " + Conversion.oct2dec(oct));
+                                dec = Conversion.oct2dec(oct);
+                                if (dec != -1) {
+                                    System.out.println("Decimal: " + dec);
+                                } else {
+                                    System.out.println("Número inválido");
+                                }
                                 break;
                             case 3:
                                 System.out.print("Ingrese número hexadecimal: ");
                                 String hex = sc.nextLine();
-                                System.out.println("Decimal: " + Conversion.hex2dec(hex));
+                                dec = Conversion.hex2dec(hex);
+                                if (dec != -1) {
+                                    System.out.println("Decimal: " + dec);
+                                } else {
+                                    System.out.println("Número inválido");
+                                }
                                 break;
                         }
                     }
@@ -86,7 +100,7 @@ public class Principal {
                         int dec = Complemento.Complemento2ADecimal(bin);
                         System.out.println("Equivalente decimal: " + dec);
                         break;
-                 case 3
+                 case 3:
                         System.out.print("Ingrese número binario: ");
                         String num = sc.nextLine();
 
